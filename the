@@ -1,0 +1,22 @@
+#include <PRIZM.h>
+#include <TELEOP.h>
+PRIZM prizm;
+PS4 ps4;
+
+int motorSpeed = 0;
+
+ void setup(){
+  prizm.PrizmBegin();
+  motorSpeed=20; 
+ void loop() {
+  ps4.getPS4();
+  if(ps4.Connected) {
+    if (ps4.Button()){prizm.setMotorPower(1,1);};
+    if (ps4.Button(SQARURE)){motorSpeed = motorSpeed*-1;}
+    if (ps4.Button(UP)){
+      motorSpeed += 10 ; }
+    if (ps4.Button(DOWN)){
+      motorSpeed -= 10 ; }
+    if (ps4.Button(CROSS)){
+      motorSpeed = 20 ; } 
+    } 
