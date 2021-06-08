@@ -8,22 +8,18 @@ int PowerM2;
 
  void setup(){
   prizm.PrizmBegin();
-  ps4.setDeadZone (LEFT,10);     
-  ps4.setDeadZone(RIGHT,10);    
+  ps4.setDeadZone (LEFT,-10);     
+  ps4.setDeadZone(RIGHT,10);      
+  prizm.setMotorInvert(1,1);
+}
+
   
  void loop() {
   ps4.getPS4();
   if(ps4.Connected) {
      PowerM1 = ps4.Motor(LY);                  
      PowerM2 = ps4.Motor(RY);                  
-     prizm.setMotorPowers(PowerM1, PowerM2);}
-    if (ps4.Button(UP)){
-      PowerM1 += 10 ; }
-    if (ps4.Button(UP)){
-      powerM2 += 10 ; }
-    }
-    if (ps4.Button(DOWN)){
-      PowerM1 -= 10 ; }
-      if (ps4.Button(DOWN)){
-      PowerM2 -= 10 ; } 
-    } 
+     prizm.setMotorPowers(PowerM1, PowerM2);} 
+  if(ps4.Button(L2)){
+    prizm.setMotorPowers(PowerM1,PowerM2);}
+ }
