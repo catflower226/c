@@ -3,8 +3,8 @@
 PRIZM prizm;
 PS4 ps4;
 
-int PowerM1;
-int PowerM2;
+int SpeedM1;
+int SpeedM2;
 
  void setup(){
   prizm.PrizmBegin();
@@ -18,14 +18,14 @@ int PowerM2;
   ps4.getPS4();
   if(ps4.Connected) {
   if(ps4.Button(R1)){
-    prizm.setMotorPowers(-100,-100);
+    prizm.setMotorSpeeds(-100,-100);
   }    else if (ps4.Button(L1)){
-    prizm.setMotorPowers(100,100);
+    prizm.setMotorSpeeds(100,100);
   }
   else{
-     PowerM1 = ps4.Motor(LY);                  
-     PowerM2 = ps4.Motor(RY);                  
-     prizm.setMotorPowers(-PowerM1, -PowerM2);
+     SpeedM1 = ps4.Motor(LY);                  
+     SpeedM2 = ps4.Motor(RY);                  
+     prizm.setMotorSpeeds(-SpeedM1, -SpeedM2);
  }
   }
  }
