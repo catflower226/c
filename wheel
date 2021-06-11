@@ -18,14 +18,14 @@ int SpeedM2;
   ps4.getPS4();
   if(ps4.Connected) {
   if(ps4.Button(R1)){
-    prizm.setMotorSpeeds(-100,-100);
-  }    else if (ps4.Button(L1)){
-    prizm.setMotorSpeeds(100,100);
-  }
-  else{
-     SpeedM1 = ps4.Motor(LY);                  
-     SpeedM2 = ps4.Motor(RY);                  
-     prizm.setMotorSpeeds(-SpeedM1, -SpeedM2);
+    prizm.setMotorSpeeds(-720,-720);
+  }  else if (ps4.Button(L1)){
+    prizm.setMotorSpeeds(720,720);
+  } else {
+    prizm.setMotorSpeeds(0,0);
+    SpeedM1 = ps4.Motor(LY);                  
+    SpeedM2 = ps4.Motor(RY);                  
+    prizm.setMotorPowers(SpeedM1, SpeedM2);
  }
   }
  }
